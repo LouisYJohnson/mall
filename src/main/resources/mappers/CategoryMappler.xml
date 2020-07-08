@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace中装的是xml对应哪个map.java文件,必须是全路径名才能找到-->
+<mapper namespace="com.ibook.mall.dao.CategoryMapper">
+    <!--    select 中的id是对应mapper文件中的方法名-->
+    <!--    select内部就是用来写sql语句的-->
+    <!--    这里面就是sql语句了,必须保持和字段名一模一样,这里又不是java文件,没有办法引入Mybatis中的驼峰转下划线-->
+    <!--    将公共部分作为一个片段抽取出来,并在查询语句中引入-->
+    <sql id="Base_Column_List">
+        id,parent_id,name,status,sort_order,create_time,update_time
+    </sql>
+    <select id="queryById" resultType="com.ibook.mall.pojo.Category">
+        select
+        <include refid="Base_Column_List"></include>
+        from mall_category
+        where id = #{id}
+    </select>
+</mapper>
