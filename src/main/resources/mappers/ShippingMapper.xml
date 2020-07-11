@@ -41,7 +41,7 @@
       #{receiverZip,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ibook.mall.pojo.Shipping">
+  <insert id="insertSelective" parameterType="com.ibook.mall.pojo.Shipping" useGeneratedKeys="true" keyProperty="id">
     insert into mall_shipping
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -174,4 +174,17 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <delete id="deleteByIdAndUid" parameterType="map">
+    delete from mall_shipping
+    where id = #{shippingId,jdbcType=INTEGER}
+    and user_id = #{uid,jdbcType=INTEGER}
+  </delete>
+
+  <select id="selectByUid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from mall_shipping
+    where user_id = #{uid,jdbcType=INTEGER}
+  </select>
 </mapper>

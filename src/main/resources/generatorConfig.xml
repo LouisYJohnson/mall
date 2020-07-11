@@ -41,17 +41,25 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-                <table tableName="mall_pay_info" domainObjectName="PayInfo" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
+        <!--        <table tableName="mall_pay_info" domainObjectName="PayInfo" enableCountByExample="false"-->
+        <!--               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
         <!--        <table tableName="mall_order_item" domainObjectName="OrderItem" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
-        <!--        <table tableName="mall_user" domainObjectName="User" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
-        <!--        <table tableName="mall_category" domainObjectName="Category" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
-        <!--        <table tableName="mall_product" domainObjectName="Product" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">-->
-        <!--            <columnOverride column="detail" jdbcType="VARCHAR" />-->
-        <!--            <columnOverride column="sub_images" jdbcType="VARCHAR" />-->
-        <!--        </table>-->
+        <!--        <table tableName="mall_user" domainObjectName="User" enableCountByExample="false" enableDeleteByExample="false"-->
+        <!--               enableSelectByExample="false" enableUpdateByExample="false"/>-->
+        <!--        <table tableName="mall_category" domainObjectName="Category" enableCountByExample="false"-->
+        <!--               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+
+        <!--        myBatis对于表中text类型的会重新创建一个pojo对象,叫做xxxWithBLOBS,但是这样比较复杂,不如都放在同一个类中,此时在generator中加入标签对这两个字段单独处理-->
+        <!--        其中text类型的商品详情与图片地址,都会生成xxxWithBLOB对象,所以此时在generator中加入:指定一下类型就好了-->
+<!--        <table tableName="mall_product" domainObjectName="Product" enableCountByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">-->
+<!--            <columnOverride column="detail" jdbcType="VARCHAR"/>-->
+<!--            <columnOverride column="sub_images" jdbcType="VARCHAR"/>-->
+<!--        </table>-->
+
         <!--        这些example都是用来做分页的,目前不需要,所以全部注掉-->
-        <table tableName="mall_shipping" domainObjectName="Shipping" enableCountByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
+        <!--        <table tableName="mall_shipping" domainObjectName="Shipping" enableCountByExample="false"-->
+        <!--               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
 
     </context>
 </generatorConfiguration>
