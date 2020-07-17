@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: lin_1120181215
+    #数据库选择内网地址
+    url: jdbc:mysql://rm-8vbl5lxha0aj5g05d.mysql.zhangbei.rds.aliyuncs.com:3306/mall?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&useUnicode=true
+  redis:
+    #redis装在本机所以ip这么填,如果安装在其他机器上,就要填那个机器的ip
+    host: 127.0.0.1
+    port: 6379
+    #password:如果配置了密码就要填,这里没有配置密码所以不填
+  rabbitmq:
+    addresses: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+mybatis:
+  configuration:
+    #如果这个不设置的话,pojo中使用驼峰命名法的变量就没办法和表中的字段对应上,但是这个配置对xml中的sql语句是无效的,只对Java中的pojo有效
+    map-underscore-to-camel-case: true
+    #控制台日志配置,将sql语句写到idea的控制台中
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #指定Mybatis的mapper.xml路径,不指定的话,程序是不知道去哪个xml里找对应的sql语句的
+  mapper-locations: classpath:mappers/*.xml
+
+server:
+  servlet:
+    session:
+      #时间是秒,就算配置了10秒,tomcat自身设置最小时间为1分重
+      timeout: 120
+  port: 8081
+

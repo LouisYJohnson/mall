@@ -240,7 +240,7 @@ public class CartServiceImpl implements ICartService {
     }
 
     //将uid对应的购物车中所有的商品索引拿出来,并组成一个List返回,通过这个list可以去数据库中找到对应的商品细节
-    private List<Cart> listForCart(Integer uid) {
+    public List<Cart> listForCart(Integer uid) {
         HashOperations<String, String, String> opsForHash = redisTemplate.opsForHash();
         String redisKey = String.format(CART_REDIS_KEY_TEMPLATE, uid);
 

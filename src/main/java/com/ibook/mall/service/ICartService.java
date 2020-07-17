@@ -2,8 +2,11 @@ package com.ibook.mall.service;
 
 import com.ibook.mall.form.CartAddForm;
 import com.ibook.mall.form.CartUpdateForm;
+import com.ibook.mall.pojo.Cart;
 import com.ibook.mall.vo.CartVo;
 import com.ibook.mall.vo.ResponseVo;
+
+import java.util.List;
 
 public interface ICartService {
 
@@ -20,4 +23,6 @@ public interface ICartService {
     ResponseVo<CartVo> unSelectAll(Integer uid);
 
     ResponseVo<Integer> sum(Integer uid);
+
+    List<Cart> listForCart(Integer uid);
 }
