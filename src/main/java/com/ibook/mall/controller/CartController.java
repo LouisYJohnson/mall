@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @RestController
+//原来返回json需要@ResponseBody和@Controller配合。
+//即@RestController是@ResponseBody和@Controller的组合注解。
 public class CartController {
 
     @Autowired
